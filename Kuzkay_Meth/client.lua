@@ -1,14 +1,3 @@
-local Keys = {
-	["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57,
-	["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177,
-	["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
-	["CAPS"] = 137, ["A"] = 34, ["S"] = 8, ["D"] = 9, ["F"] = 23, ["G"] = 47, ["H"] = 74, ["K"] = 311, ["L"] = 182,
-	["LEFTSHIFT"] = 21, ["Z"] = 20, ["X"] = 73, ["C"] = 26, ["V"] = 0, ["B"] = 29, ["N"] = 249, ["M"] = 244, [","] = 82, ["."] = 81,
-	["LEFTCTRL"] = 36, ["LEFTALT"] = 19, ["SPACE"] = 22, ["RIGHTCTRL"] = 70,
-	["HOME"] = 213, ["PAGEUP"] = 10, ["PAGEDOWN"] = 11, ["DELETE"] = 178,
-	["LEFT"] = 174, ["RIGHT"] = 175, ["TOP"] = 27, ["DOWN"] = 173,
-	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
-}
 local started = false
 local displayed = false
 local progress = 0
@@ -47,7 +36,7 @@ AddEventHandler('esx_methcar:startprod', function()
 	FreezeEntityPosition(CurrentVehicle,true)
 	displayed = false
 	print('Started Meth production')
-	ESX.ShowNotification("~r~MMeth elkészités folyamatban")	
+	ESX.ShowNotification("~r~Meth elkészités folyamatban")	
 	SetPedIntoVehicle(PlayerPedId(), CurrentVehicle, 3)
 	SetVehicleDoorOpen(CurrentVehicle, 2)
 end)
@@ -129,8 +118,8 @@ CreateThread(function()
 								displayed = true
 							end
 						end
-						if IsControlJustReleased(0, Keys['G']) then
-							if pos.y >= 3500 then
+						if IsControlJustReleased(0, 113) then
+							if pos.x >= 3500 then
 								if IsVehicleSeatFree(CurrentVehicle, 3) then
 									TriggerServerEvent('esx_methcar:start')	
 									progress = 0
@@ -151,15 +140,9 @@ CreateThread(function()
 		
 						end
 					end
-					
-				
-				
-			
 			end
 			
 		else
-
-				
 				if started then
 					started = false
 					displayed = false
@@ -185,7 +168,6 @@ CreateThread(function()
 				if progress > 22 and progress < 24 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~A propán tank elkezd szivárogni, mit teszel?')	
 						ESX.ShowNotification('~o~1. Leragasztom Szigetelö Szallaggal')
 						ESX.ShowNotification('~o~2. Nem csinálok semmit ')
@@ -222,7 +204,6 @@ CreateThread(function()
 				if progress > 30 and progress < 32 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Kilöttyintettél egy kis acetont a földre, mit teszel?')	
 						ESX.ShowNotification('~o~1. Kinyitom az ablakot, hogy kiszálljon a szag')
 						ESX.ShowNotification('~o~2. Nem csinálok semmit')
@@ -254,7 +235,6 @@ CreateThread(function()
 				if progress > 38 and progress < 40 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Tul gyorsan megszilárdul a meth, mit csinálsz? ')	
 						ESX.ShowNotification('~o~1. Felemelem a nyomást')
 						ESX.ShowNotification('~o~2. Emelem a hömérsékletet')
@@ -285,7 +265,6 @@ CreateThread(function()
 				if progress > 41 and progress < 43 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Véletlenül tul sok acetont használtál, mit csinálsz?')	
 						ESX.ShowNotification('~o~1. Semmit')
 						ESX.ShowNotification('~o~2. Megprobálom fecskendövel kiszedni')
@@ -317,7 +296,6 @@ CreateThread(function()
 				if progress > 46 and progress < 49 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Találtál néhány viz szinezéket, mit csinálsz?')	
 						ESX.ShowNotification('~o~1. Hozzáadom')
 						ESX.ShowNotification('~o~2. Félre rakom')
@@ -347,7 +325,6 @@ CreateThread(function()
 				if progress > 55 and progress < 58 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~A szürö eldugult, mit csinálsz?')	
 						ESX.ShowNotification('~o~1. Megtisztitom süritett levegövel')
 						ESX.ShowNotification('~o~2. Kicserélem a szüröt')
@@ -379,7 +356,6 @@ CreateThread(function()
 				if progress > 58 and progress < 60 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Kilöttyintettél egy kis acetont a földre, mit teszel?')	
 						ESX.ShowNotification('~o~1. Kinyitom az ablakot, hogy kiszálljon a szag')
 						ESX.ShowNotification('~o~2. Nem csinálok semmit')
@@ -411,7 +387,6 @@ CreateThread(function()
 				if progress > 63 and progress < 65 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~A propán tank elkezd szivárogni, mit teszel?')	
 						ESX.ShowNotification('~o~1. Leragasztom Szigetelö Szallaggal')
 						ESX.ShowNotification('~o~2. Nem csinálok semmit ')
@@ -448,7 +423,6 @@ CreateThread(function()
 				if progress > 71 and progress < 73 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~A szürö eldugult, mit csinálsz?')	
 						ESX.ShowNotification('~o~1. Megtisztitom süritett levegövel')
 						ESX.ShowNotification('~o~2. Kicserélem a szüröt')
@@ -480,7 +454,6 @@ CreateThread(function()
 				if progress > 76 and progress < 78 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Véletlenül tul sok acetont használtál, mit csinálsz?')	
 						ESX.ShowNotification('~o~1. Semmit')
 						ESX.ShowNotification('~o~2. Megprobálom fecskendövel kiszedni')
@@ -512,7 +485,6 @@ CreateThread(function()
 				if progress > 82 and progress < 84 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Rádjött a szarás, mit teszel?')	
 						ESX.ShowNotification('~o~1. Megprobálom visszatartani')
 						ESX.ShowNotification('~o~2. Kimegyek, és szarok')
@@ -544,7 +516,6 @@ CreateThread(function()
 				if progress > 88 and progress < 90 then
 					pause = true
 					if selection == 0 then
-					pause = true
 						ESX.ShowNotification('~o~Adjak hozzá a methez több üvegszilánkot, hogy többnek tünjön?')	
 						ESX.ShowNotification('~o~1. Igen!')
 						ESX.ShowNotification('~o~2. Nem')
@@ -577,7 +548,7 @@ CreateThread(function()
 						selection = 0
 						quality = quality + 1
 						progress = progress +  math.random(1, 2)
-						ESX.ShowNotification('~r~Meth Készítés: ~g~~h~' .. progress .. '%')
+						ESX.ShowNotification('~r~Meth Készítés: ~g~~h~' .. folyamat .. '%')
 					end
 				else
 					TriggerEvent('esx_methcar:stop')
@@ -586,7 +557,7 @@ CreateThread(function()
 			else
 				TriggerEvent('esx_methcar:stop')
 				progress = 100
-				ESX.ShowNotification('~r~Meth Készítés: ~g~~h~' .. progress .. '%')
+				ESX.ShowNotification('~r~Meth Készítés: ~g~~h~' .. folyamat .. '%')
 				ESX.ShowNotification('~g~~h~Befejezve')
 				TriggerServerEvent('esx_methcar:finish', quality)
 				FreezeEntityPosition(LastCar, false)
@@ -599,24 +570,23 @@ CreateThread(function()
 	end
 end)
 
-CreateThread(function()
-	while true do
-		local sleep = 1000		
-		if pause == true then
-		sleep = 5
-			if IsControlJustReleased(0, Keys['1']) then
-				selection = 1
-				ESX.ShowNotification('~g~Selected option number 1')
-			end
-			if IsControlJustReleased(0, Keys['2']) then
-				selection = 2
-				ESX.ShowNotification('~g~Selected option number 2')
-			end
-			if IsControlJustReleased(0, Keys['3']) then
-				selection = 3
-				ESX.ShowNotification('~g~Selected option number 3')
-			end
-		end
-        Wait(sleep)
-	end
+ESX.RegisterInput("esx-meth1", "Meth selection", "keyboard", "1", function()
+    if pause == true then
+	selection = 1
+	ESX.ShowNotification('~g~1')
+    end
+end)
+
+ESX.RegisterInput("esx-meth2", "Meth selection", "keyboard", "2", function()
+    if pause == true then
+	selection = 2
+	ESX.ShowNotification('~g~2')
+    end
+end)
+
+ESX.RegisterInput("esx-meth3", "Meth selection", "keyboard", "3", function()
+    if pause == true then
+	selection = 3
+	ESX.ShowNotification('~g~3')
+    end
 end)
