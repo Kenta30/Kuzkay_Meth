@@ -7,15 +7,12 @@ AddEventHandler('esx_methcar:start', function()
 	
 	if xPlayer.getInventoryItem('acetone').count >= 5 and xPlayer.getInventoryItem('lithium').count >= 2 and xPlayer.getInventoryItem('methlab').count >= 1 then
 		if xPlayer.getInventoryItem('meth').count >= 30 then
-				TriggerClientEvent('esx_methcar:notify', _source, "~h~Nem fér el nálad több ~b~Meth")
+			TriggerClientEvent('esx_methcar:notify', _source, "~h~Nem fér el nálad több ~b~Meth")
 		else
 			TriggerClientEvent('esx_methcar:startprod', _source)
 			xPlayer.removeInventoryItem('acetone', 5)
 			xPlayer.removeInventoryItem('lithium', 2)
-		end
-
-		
-		
+		end	
 	else
 		TriggerClientEvent('esx_methcar:notify', _source, "~r~Nincs elég hozzávalo hogy elkészitsd a ~b~Meth-et~s~!")
 
